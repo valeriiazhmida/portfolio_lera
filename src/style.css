@@ -39,7 +39,7 @@ a {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: linear-gradient(90deg, #e3dbe4 0%, #e3dbe4 50%, #d8cfd9 100%);
+  background: #e0d6df;
 }
 
 .nav {
@@ -192,16 +192,12 @@ a {
   position: absolute;
   right: 0;
   bottom: 0;
-  height: min(92%, 880px);
+  height: 100%;
   width: auto;
-  max-width: 44%;
-  object-fit: contain;
-  object-position: bottom right;
+  min-width: 100%;
+  object-fit: cover;
+  object-position: right bottom;
   z-index: 1;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 6%), linear-gradient(to right, transparent 0, #000 6%);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to bottom, transparent 0, #000 6%), linear-gradient(to right, transparent 0, #000 6%);
-  mask-composite: intersect;
   opacity: 0;
   animation: fade-in 1s 0.2s ease forwards;
 }
@@ -239,7 +235,7 @@ a {
 }
 
 /* ---------- Tablet / mobile ---------- */
-@media (max-width: 900px) {
+@media (max-width: 900px), (max-aspect-ratio: 7/5) {
   .nav {
     grid-template-columns: 1fr auto;
     row-gap: 18px;
@@ -259,10 +255,13 @@ a {
   }
   .hero__photo {
     position: relative;
-    align-self: flex-end;
+    right: auto;
+    min-width: 0;
+    width: 100%;
     height: auto;
-    width: min(78%, 420px);
-    max-width: none;
+    aspect-ratio: 4 / 5;
+    max-height: 70vh;
+    object-position: 82% bottom;
     margin-top: auto;
   }
   .hero__actions .btn {
