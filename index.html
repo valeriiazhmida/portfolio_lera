@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valeria Zhmida — UX/UI дизайнер</title>
+    <meta name="description" content="Створюю вебпродукти, якими можна користуватись без інструкцій. UX/UI дизайнер для малого та середнього бізнесу." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,500;0,700;1,700&display=swap&subset=cyrillic"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header class="hero" id="top">
+      <nav class="nav">
+        <a class="logo" href="#top">VALERIA ZHMIDA</a>
+        <ul class="menu">
+          <li><a href="#projects" data-i18n="nav.projects">Мої проєкти</a></li>
+          <li><a href="#about" data-i18n="nav.about">Про мене</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Контакти</a></li>
+        </ul>
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="uk" class="is-active">UA</button>
+          <span aria-hidden="true">|</span>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+      </nav>
+
+      <div class="hero__content">
+        <h1 class="hero__title reveal" style="--d: 0ms">
+          <span data-i18n-html="hero.title">Створюю вебпродукти, якими можна користуватись <em>без інструкцій</em></span>
+        </h1>
+        <p class="hero__sub reveal" style="--d: 150ms" data-i18n="hero.sub">
+          UX/UI дизайнер для малого та середнього бізнесу
+        </p>
+        <div class="hero__actions reveal" style="--d: 300ms">
+          <a class="btn btn--primary" href="#contact" data-i18n="hero.write">Написати</a>
+          <a class="btn btn--outline" href="#projects" data-i18n="hero.projects">Переглянути проєкти</a>
+        </div>
+      </div>
+
+      <img class="hero__photo" src="/lera.webp" alt="Valeria Zhmida" width="565" height="780" />
+    </header>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
