@@ -190,15 +190,15 @@ a {
 
 .hero__photo {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  height: 82%;
-  width: auto;
+  /* Розмір і позиція зняті з макета Figma (1310×794): фігура ≈ 42% ширини, верх кадру у верху екрана */
+  top: 0;
+  right: -7.3vw;
+  width: 108.6vw;
+  height: auto;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: right top;
   z-index: 1;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%), linear-gradient(to right, transparent 0, #000 12%);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to bottom, transparent 0, #000 12%), linear-gradient(to right, transparent 0, #000 12%);
-  mask-composite: intersect;
   opacity: 0;
   animation: fade-in 1s 0.2s ease forwards;
 }
@@ -256,7 +256,9 @@ a {
   }
   .hero__photo {
     position: relative;
+    top: auto;
     right: auto;
+    min-height: 0;
     width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
@@ -264,8 +266,6 @@ a {
     object-fit: cover;
     object-position: 82% bottom;
     margin-top: auto;
-    -webkit-mask-image: none;
-    mask-image: none;
   }
   .hero__actions .btn {
     height: 52px;
