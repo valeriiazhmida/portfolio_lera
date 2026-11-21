@@ -239,36 +239,60 @@ a {
 @media (max-width: 900px), (max-aspect-ratio: 7/5) {
   .nav {
     grid-template-columns: 1fr auto;
-    row-gap: 18px;
-    padding-top: 24px;
+    row-gap: 10px;
+    padding-top: 18px;
   }
   .menu {
     grid-column: 1 / -1;
     order: 3;
-    gap: 24px;
-    font-size: 14px;
+    gap: 20px;
+    font-size: 13px;
+  }
+  /* Усе першого екрана вміщається в один екран телефона: текст зверху, фото займає решту висоти */
+  .hero {
+    height: 100vh;
+    height: 100svh;
+    min-height: 0;
   }
   .hero__content {
     max-width: none;
     flex: none;
-    padding-top: 56px;
-    padding-bottom: 32px;
+    justify-content: flex-start;
+    padding-top: 28px;
+    padding-bottom: 0;
+  }
+  .hero__title {
+    font-size: clamp(1.65rem, 7.4vw, 2.6rem);
+  }
+  .hero__sub {
+    margin-top: 12px;
+    font-size: 0.95rem;
+  }
+  .hero__actions {
+    margin-top: 20px;
+    gap: 10px;
   }
   .hero__photo {
     position: relative;
     top: auto;
     right: auto;
+    flex: 1 1 0;
     min-height: 0;
     width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1;
-    max-height: 55vh;
     object-fit: cover;
-    object-position: 82% bottom;
-    margin-top: auto;
+    object-position: 72% top;
+    margin-top: 8px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 14%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 14%);
+  }
+  .hero__actions {
+    flex-wrap: nowrap;
   }
   .hero__actions .btn {
-    height: 52px;
-    padding: 0 28px;
+    height: 44px;
+    padding: 0 16px;
+    font-size: 14px;
+    white-space: nowrap;
   }
 }
