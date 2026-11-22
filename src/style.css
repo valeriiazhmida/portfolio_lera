@@ -425,14 +425,9 @@ a {
   .nav {
     font-size: clamp(13px, 1.1vw, 20px);
   }
-  /* Коли екран вищий за фото (напр. 1024×768), піднімаємо дівчину й текст: фото відступає від верху лише на частку вільного місця, а текст зсувається вгору на те саме */
-  .hero__photo {
-    top: calc(max(0px, 100svh - 61.1vw) * 0.35);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 4%, #000 90%, transparent 100%);
-    mask-image: linear-gradient(to bottom, transparent 0, #000 4%, #000 90%, transparent 100%);
-  }
+  /* Коли екран вищий за фото (напр. 1024×768), фото притиснуте до низу, а текст піднятий вище на вільне місце */
   .hero__content {
-    padding-bottom: calc(8vh + max(0px, 100svh - 61.1vw));
+    padding-bottom: calc(8vh + max(0px, 100svh - 61.1vw) * 1.6);
   }
   .logo {
     font-size: clamp(15px, 1.5vw, 30px);
