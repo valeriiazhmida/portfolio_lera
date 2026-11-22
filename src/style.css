@@ -53,10 +53,10 @@ a {
 }
 
 .logo {
-  font-family: var(--font-serif);
+  font-family: "Italiana", "Cormorant Garamond", var(--font-serif);
   font-weight: 400;
-  font-size: 18px;
-  letter-spacing: 0.1em;
+  font-size: 21px;
+  letter-spacing: 0.12em;
   justify-self: start;
 }
 
@@ -190,15 +190,15 @@ a {
 
 .hero__photo {
   position: absolute;
-  /* Розмір і позиція зняті з макета Figma (1310×794): фігура ≈ 42% ширини, верх кадру у верху екрана */
-  top: 0;
+  /* Розмір і позиція зняті з макета Figma: фігура ≈ 40% ширини екрана, у будь-якому співвідношенні сторін.
+     Якщо екран вищий за фото (61.1vw), фото притискається до низу, інакше верх кадру у верху екрана. */
+  top: max(0px, calc(100svh - 61.1vw));
   right: -7.3vw;
   width: 108.6vw;
   height: auto;
-  min-height: 100%;
-  object-fit: cover;
-  object-position: right top;
   z-index: 1;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 4%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 4%);
   opacity: 0;
   animation: fade-in 1s 0.2s ease forwards;
 }
@@ -236,7 +236,7 @@ a {
 }
 
 /* ---------- Tablet / mobile ---------- */
-@media (max-width: 900px), (max-aspect-ratio: 7/5) {
+@media (max-width: 900px), (orientation: portrait) {
   .nav {
     grid-template-columns: 1fr auto;
     row-gap: 10px;
@@ -348,7 +348,7 @@ a {
 }
 
 /* ---------- Планшет: та сама логіка, що на телефоні, але з більшими елементами по центру ---------- */
-@media (min-width: 600px) and ((max-width: 900px) or (max-aspect-ratio: 7/5)) {
+@media (min-width: 600px) and ((max-width: 900px) or (orientation: portrait)) {
   .nav {
     padding: 28px var(--pad) 0;
   }
@@ -404,7 +404,7 @@ a {
 }
 
 /* Планшет горизонтально: картка зліва, щоб не закривати дівчину праворуч */
-@media (min-width: 600px) and (orientation: landscape) and ((max-width: 900px) or (max-aspect-ratio: 7/5)) {
+@media (min-width: 600px) and (orientation: landscape) and (max-width: 900px) {
   .hero__content {
     width: min(460px, 46%);
     margin: auto auto 94px var(--pad);
@@ -416,5 +416,32 @@ a {
   }
   .hero__sub {
     font-size: 1rem;
+  }
+}
+
+/* ---------- Десктоп і горизонтальний планшет (>900px): пропорції з макета Figma ---------- */
+/* Усі розміри в vw, щоб співвідношення «дівчина : текст : кнопки» лишалось таким самим на 1024×768, 1280×800 і ширших екранах */
+@media (min-width: 901px) and (orientation: landscape) {
+  .nav {
+    font-size: clamp(13px, 1.1vw, 20px);
+  }
+  .logo {
+    font-size: clamp(15px, 1.5vw, 30px);
+  }
+  .hero__title {
+    font-size: clamp(2.2rem, 4.4vw, 5.6rem);
+  }
+  .hero__sub {
+    margin-top: clamp(18px, 2.2vw, 44px);
+    font-size: clamp(0.95rem, 1.48vw, 1.7rem);
+  }
+  .hero__actions {
+    margin-top: clamp(28px, 3.6vw, 72px);
+    gap: clamp(12px, 1.3vw, 26px);
+  }
+  .btn {
+    height: clamp(46px, 4.6vw, 92px);
+    padding: 0 clamp(26px, 3.1vw, 62px);
+    font-size: clamp(14px, 1.25vw, 24px);
   }
 }
