@@ -251,12 +251,22 @@ a {
     z-index: 10;
     gap: 4px;
     padding: 5px;
-    background: rgba(255, 255, 255, 0.8);
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.85);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.2));
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.55);
     border-radius: 999px;
-    box-shadow: 0 6px 24px rgba(26, 22, 51, 0.14);
+    box-shadow:
+      inset 0 1.5px 1px rgba(255, 255, 255, 0.95),
+      inset 0 -1.5px 1px rgba(255, 255, 255, 0.35),
+      inset 0 0 14px rgba(255, 255, 255, 0.25),
+      0 10px 28px rgba(26, 22, 51, 0.16);
+  }
+  .logo {
+    font-family: "Cormorant Garamond", var(--font-serif);
+    font-weight: 300;
+    font-size: 21px;
+    letter-spacing: 0.12em;
   }
   .menu li {
     flex: 1;
@@ -286,12 +296,16 @@ a {
     justify-content: flex-start;
     margin: auto 12px 72px;
     padding: 20px 18px 18px;
-    background: rgba(255, 255, 255, 0.68);
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.75);
-    border-radius: 26px;
-    box-shadow: 0 8px 30px rgba(26, 22, 51, 0.1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.24));
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 28px;
+    box-shadow:
+      inset 0 1.5px 1px rgba(255, 255, 255, 0.95),
+      inset 0 -1.5px 1px rgba(255, 255, 255, 0.35),
+      inset 0 0 18px rgba(255, 255, 255, 0.25),
+      0 12px 34px rgba(26, 22, 51, 0.16);
   }
   .hero__title {
     font-size: clamp(1.55rem, 7vw, 2.4rem);
@@ -307,19 +321,20 @@ a {
   }
   .hero__photo {
     position: absolute;
-    top: auto;
-    bottom: 0;
+    top: 56px;
+    bottom: auto;
     left: 0;
     right: auto;
     z-index: 0;
     min-height: 0;
     width: 100%;
-    height: 90%;
+    height: 66%;
     object-fit: cover;
     object-position: 80% top;
     margin: 0;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 10%);
-    mask-image: linear-gradient(to bottom, transparent 0, #000 10%);
+    /* затухання лише по самому краю кадру, волосся не зачіпає */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 3%, #000 82%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 3%, #000 82%, transparent 100%);
   }
   .hero__actions {
     flex-wrap: nowrap;
