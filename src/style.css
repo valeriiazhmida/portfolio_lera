@@ -346,3 +346,72 @@ a {
     white-space: nowrap;
   }
 }
+
+/* ---------- Планшет: та сама логіка, що на телефоні, але з більшими елементами по центру ---------- */
+@media (min-width: 600px) and ((max-width: 900px) or (max-aspect-ratio: 7/5)) {
+  .nav {
+    padding: 28px var(--pad) 0;
+  }
+  .logo {
+    font-size: 26px;
+  }
+  .lang {
+    font-size: 16px;
+  }
+  .menu {
+    left: var(--pad);
+    right: var(--pad);
+    width: auto;
+    bottom: 20px;
+  }
+  .menu a {
+    height: 48px;
+    font-size: 15px;
+  }
+  .hero__content {
+    /* краї підкладки стоять на лінії логотипа (відступ від V до краю екрана = відступ підкладки), текст усередині має однакові відступи зліва й справа */
+    width: auto;
+    margin: auto var(--pad) 94px;
+    padding: 28px 30px 26px;
+    min-height: 357px;
+    justify-content: center;
+    border-radius: 34px;
+  }
+  .hero__title {
+    font-size: clamp(2rem, 5.4vw, 3.2rem);
+  }
+  .hero__sub {
+    font-size: 1.05rem;
+    margin-top: 14px;
+  }
+  .hero__actions {
+    margin-top: 24px;
+    gap: 12px;
+  }
+  .hero__actions .btn {
+    height: 52px;
+    padding: 0 28px;
+    font-size: 16px;
+  }
+  .hero__photo {
+    top: 72px;
+    height: 70%;
+    object-position: 75% top;
+  }
+}
+
+/* Планшет горизонтально: картка зліва, щоб не закривати дівчину праворуч */
+@media (min-width: 600px) and (orientation: landscape) and ((max-width: 900px) or (max-aspect-ratio: 7/5)) {
+  .hero__content {
+    width: min(460px, 46%);
+    margin: auto auto 94px var(--pad);
+    padding: 24px 26px 22px;
+    min-height: 347px;
+  }
+  .hero__title {
+    font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+  }
+  .hero__sub {
+    font-size: 1rem;
+  }
+}
