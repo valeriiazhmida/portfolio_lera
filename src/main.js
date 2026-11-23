@@ -35,6 +35,19 @@ function setLang(lang) {
 
 document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => setLang(b.dataset.lang)));
 
+const nav = document.querySelector(".nav");
+const burger = document.querySelector(".burger");
+
+function setMenu(open) {
+  nav.classList.toggle("is-open", open);
+  burger.setAttribute("aria-expanded", String(open));
+}
+
+burger.addEventListener("click", () => setMenu(!nav.classList.contains("is-open")));
+document.querySelectorAll(".menu a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+document.addEventListener("keydown", (e) => e.key === "Escape" && setMenu(false));
+document.addEventListener("click", (e) => nav.classList.contains("is-open") && !nav.contains(e.target) && setMenu(false));
+
 let saved = "uk";
 try {
   saved = localStorage.getItem("lang") || "uk";
